@@ -33,7 +33,7 @@ deploy:
     artifact: /.*(\.|\.s)nupkg/
 
 artifacts:
-  - path: Output\**\*.nupkg'
+  - path: Output\**\*.nupkg
 
 nuget:
   disable_publish_on_pr: true
