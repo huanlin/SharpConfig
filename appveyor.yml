@@ -10,7 +10,7 @@ branches:
 skip_branch_with_pr: true
 
 before_build:
-  - cmd: dotnet restore 'SharpConfig.sln'
+  - cmd: dotnet restore SharpConfig.sln
 
 build:
   project: 'SharpConfig.sln'
