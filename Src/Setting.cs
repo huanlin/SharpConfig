@@ -1,5 +1,6 @@
 ﻿// Copyright (c) 2013-2018 Cemalettin Dervis, MIT License.
 // https://github.com/cemdervis/SharpConfig
+// https://github.com/huanlin/SharpConfig (Since February 2022)
 
 using System;
 using System.Text;

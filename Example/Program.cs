@@ -1,7 +1,9 @@
 ﻿// Copyright (c) 2013-2018 Cemalettin Dervis, MIT License.
 // https://github.com/cemdervis/SharpConfig
+// https://github.com/huanlin/SharpConfig (Since February 2022)
 
 using System;
+using System.Reflection;
 using SharpConfig;
 
 namespace Example
@@ -40,14 +42,18 @@ namespace Example
     }
 
     /// <summary>
-    /// Shows how to load a configuration from a string (our sample config).
-    /// The same works for loading files and streams. Just call the appropriate method
-    /// such as LoadFromFile and LoadFromStream, respectively.
+    /// Shows how to load a configuration from a file (our sample config).
+    /// The same works for loading from a string and stream. Just call the 
+    /// appropriate method such as LoadFromString and LoadFromStream, respectively.
     /// </summary>
     static void HowToLoadAConfig()
     {
+      var asmb = Assembly.GetExecutingAssembly();
+      string path = Path.GetDirectoryName(asmb.Location);
+      string filename = Path.Combine(path, "SampleCfg.txt");
+
       // Read our example config.
-      var cfg = Configuration.LoadFromString(Properties.Resources.SampleCfg);
+      var cfg = Configuration.LoadFromFile(filename);
 
       // Just print all sections and their settings.
       PrintConfig(cfg);

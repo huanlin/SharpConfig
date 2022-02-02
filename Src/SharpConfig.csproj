@@ -1,19 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net48;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <Description>An easy to use CFG/INI configuration library for .NET.</Description>
-    <Copyright>Copyright 2013-2020 Cemalettin Dervis</Copyright>
+    <Copyright>Copyright 2013-2022 Cemalettin Dervis, Michael Tsai</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <AssemblyVersion>3.2.9.1</AssemblyVersion>
-    <FileVersion>3.2.9.1</FileVersion>
+    <AssemblyVersion></AssemblyVersion>
+    <FileVersion></FileVersion>
     <PackageIcon>SharpConfigLogo.png</PackageIcon>
     <PackageLicenseFile></PackageLicenseFile>
-    <Version>3.2.9.1</Version>
-    <Authors>SharpConfig</Authors>
-    <PackageProjectUrl>https://github.com/cemdervis/SharpConfig</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/cemdervis/SharpConfig.git</RepositoryUrl>
+    <Version></Version>
+    <Authors>Cemalettin Dervis, Michael Tsai</Authors>
+    <PackageProjectUrl>https://github.com/huanlin/SharpConfig</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/huanlin/SharpConfig.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>sharpconfig config c# csharp cfg ini configuration library</PackageTags>
     <PackageReleaseNotes>Please see the project URL for the latest release notes.</PackageReleaseNotes>
@@ -27,6 +27,7 @@
 
   <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
