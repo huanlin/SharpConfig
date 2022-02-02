@@ -5,6 +5,8 @@
     <Nullable>disable</Nullable>
 
     <IsPackable>false</IsPackable>
+
+    <BaseOutputPath>..\Output\Tests</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

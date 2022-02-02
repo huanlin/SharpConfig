@@ -1,13 +1,15 @@
 ![sharpconfig_logo.png](SharpConfigLogo.png)
 
 [![NuGet version](https://buildstats.info/nuget/sharpconfig)](https://www.nuget.org/packages/sharpconfig)
-[![Build status](https://img.shields.io/appveyor/ci/cemdervis/SharpConfig/master.svg)](https://ci.appveyor.com/project/cemdervis/SharpConfig)
+[![Build status](https://ci.appveyor.com/api/projects/status/9pkays6a0624uba6?svg=true)](https://ci.appveyor.com/project/huanlin/sharpconfig)
 
 SharpConfig is an easy to use CFG/INI configuration library for .NET.
 
 You can use SharpConfig to read, modify and save configuration files and streams, in either text or binary format.
 
 The library is fully compatible with .NET, .NET Core and the Mono Framework.
+
+*Note:* You are looking at a fork of [SharpConfig](https://github.com/cemdervis/SharpConfig). This fork is started since February 2022 by Michael Tsai. See [CHANGELOG.md] for more information.
 
 An example Configuration
 ---
