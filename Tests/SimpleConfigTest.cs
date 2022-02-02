@@ -572,6 +572,17 @@ namespace Tests
     }
 
     [Test]
+    public void SupressArrayParsing() 
+    {
+      var section = "General";
+      var name = "AutoReplacedTexts";
+      var value = "{1=one, 2=two, 3=three}";
+      Configuration.SupressArrayParsing = true;
+      var cfg = Configuration.LoadFromString($"[{section}]\r\n{name} = {value}");
+      Assert.AreEqual(value, cfg[section][name].StringValue);
+    }
+
+    [Test]
     public void GetValueOrDefault()
     {
       var cfg = new Configuration();

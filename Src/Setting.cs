@@ -326,6 +326,11 @@ namespace SharpConfig
 
     private int CalculateArraySize()
     {
+      if (Configuration.SupressArrayParsing)
+      {
+        return -1;
+      }
+
       int size = 0;
       var enumerator = new SettingArrayEnumerator(RawValue, false);
       while (enumerator.Next())

@@ -667,6 +667,13 @@ namespace SharpConfig
     }
 
     /// <summary>
+    /// Gets or sets a value indicating whether array parsing
+    /// should be supressed. If set to true, array syntax will be 
+    /// treated as a string.
+    /// </summary>
+    public static bool SupressArrayParsing { get; set; }
+
+    /// <summary>
     /// Gets or sets a value indicating whether string values are written
     /// without quotes, but including everything in between.
     /// Example:
