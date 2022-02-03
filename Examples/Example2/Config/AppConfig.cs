@@ -17,11 +17,6 @@ namespace Example2.Config
 
         private static AppConfig _instance;
 
-        static AppConfig()
-        {
-            Configuration.IgnoreInlineComments = false;
-        }
-
         public static AppConfig GetInstance()
         {
             if (_instance == null)
@@ -33,13 +28,18 @@ namespace Example2.Config
         }
 
         private string _configFileName;
-        private Configuration _config;        
+        private Configuration _config;
 
         public GeneralSection General { get; private set; }
-        public PrintingSection Printing { get; private set; } 
+        public PrintingSection Printing { get; private set; }
 
         public AppConfig()
         {
+            Assembly asmb = Assembly.GetExecutingAssembly();
+            string path = Path.GetDirectoryName(asmb.Location);
+            _configFileName = Path.Combine(path, IniFileName);
+
+            // Create section objects for default configuration values.
             General = new GeneralSection();
             Printing = new PrintingSection();
 
@@ -48,11 +48,7 @@ namespace Example2.Config
 
         public void Load()
         {
-            Assembly asmb = Assembly.GetExecutingAssembly();
-            string path = Path.GetDirectoryName(asmb.Location);
-            string filename = Path.Combine(path, IniFileName);
-
-            _configFileName = filename;
+            Configuration.IgnoreInlineComments = false;
             _config = Configuration.LoadFromFile(_configFileName, Encoding.UTF8);
 
             General = _config[GeneralSection.Name].ToObject<GeneralSection>();
