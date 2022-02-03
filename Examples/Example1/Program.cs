@@ -6,7 +6,7 @@ using System;
 using System.Reflection;
 using SharpConfig;
 
-namespace Example
+namespace Example1
 {
   class SomeClass
   {

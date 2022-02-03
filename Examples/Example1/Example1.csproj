@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Src\SharpConfig.csproj" />
+    <ProjectReference Include="..\..\Src\SharpConfig.csproj" />
   </ItemGroup>
 
   <ItemGroup>
