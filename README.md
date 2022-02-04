@@ -140,6 +140,8 @@ The following properties are the current ones:
   * Gets or sets a value indicating whether string values are written without quotes, but including everything in between. Example:
     * The setting `MySetting=" Example value"` is written to a file in as `MySetting= Example value`
     
+* bool **Configuration.SupressArrayParsing** { get; set; }
+  * Gets or sets a value indicating whether array parsing should be supressed. If set to true, array syntax will be treated as a string.
 
 Ignoring properties, fields and types
 ---
