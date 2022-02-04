@@ -9,3 +9,7 @@ config.Load();
 Console.WriteLine($"AutoUpdate: {config.General.AutoUpdate}");
 Console.WriteLine($"PrintTextFontSize: {config.Printing.PrintTextFontSize}");
 
+// toggle AutoUpdate setting and save to file.
+config.General.AutoUpdate = !config.General.AutoUpdate;
+config.Save();
+

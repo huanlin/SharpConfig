@@ -57,6 +57,8 @@ namespace Example2.Config
 
         public void Save()
         {
+            _config[GeneralSection.Name].GetValuesFrom(General);
+            _config[PrintingSection.Name].GetValuesFrom(Printing);
             _config.SaveToFile(_configFileName, Encoding.UTF8);
         }
     }
