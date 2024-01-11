@@ -179,22 +179,20 @@ namespace SharpConfig
             if (ShouldIgnoreMappingFor(info))
                 return;
 
-            var setting = FindSetting(info.Name);
-            if (setting != null)
+            var setting = GetSettingAndAutoCreateIfNotExist(info.Name);
+
+            object value = null;
+
+            if (info is FieldInfo)
             {
-                object value = null;
-
-                if (info is FieldInfo)
-                {
-                    value = ((FieldInfo)info).GetValue(instance);
-                }
-                else if (info is PropertyInfo)
-                {
-                    value = ((PropertyInfo)info).GetValue(instance, null);
-                }
-
-                setting.SetValue(value);
+                value = ((FieldInfo)info).GetValue(instance);
             }
+            else if (info is PropertyInfo)
+            {
+                value = ((PropertyInfo)info).GetValue(instance, null);
+            }
+
+            setting.SetValue(value);
         }
 
         /// <summary>
@@ -305,7 +303,7 @@ namespace SharpConfig
                 {
                     bool ignore = (member as FieldInfo).FieldType.GetCustomAttributes(typeof(IgnoreAttribute), false).Length > 0;
                     return ignore;
-                }                    
+                }
             }
 
             return false;
@@ -314,14 +312,12 @@ namespace SharpConfig
         /// <summary>
         /// Gets an enumerator that iterates through the section.
         /// </summary>
-        public IEnumerator<Setting> GetEnumerator()
-          => mSettings.GetEnumerator();
+        public IEnumerator<Setting> GetEnumerator() => mSettings.GetEnumerator();
 
         /// <summary>
         /// Gets an enumerator that iterates through the section.
         /// </summary>
-        IEnumerator IEnumerable.GetEnumerator()
-          => GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         /// <summary>
         /// Adds a setting to the section.
@@ -347,8 +343,7 @@ namespace SharpConfig
         /// <param name="settingName">The name of the setting to add.</param>
         /// <returns>The added setting.</returns>
         /// <exception cref="ArgumentNullException">When <paramref name="settingName"/> is null or empty.</exception>
-        public Setting Add(string settingName)
-          => Add(settingName, string.Empty);
+        public Setting Add(string settingName) => Add(settingName, string.Empty);
 
         /// <summary>
         /// Adds a setting with a specific name and value to the section.
@@ -386,8 +381,7 @@ namespace SharpConfig
         /// </summary>
         /// <param name="setting">The setting to remove.</param>
         /// <returns>True if the setting was removed; false otherwise.</returns>
-        public bool Remove(Setting setting)
-          => mSettings.Remove(setting);
+        public bool Remove(Setting setting) => mSettings.Remove(setting);
 
         /// <summary>
         /// Removes all settings that have a specific name.
@@ -406,16 +400,14 @@ namespace SharpConfig
         /// <summary>
         /// Clears the section of all settings.
         /// </summary>
-        public void Clear()
-          => mSettings.Clear();
+        public void Clear() => mSettings.Clear();
 
         /// <summary>
         /// Determines whether a specified setting is contained in the section.
         /// </summary>
         /// <param name="setting">The setting to check for containment.</param>
         /// <returns>True if the setting is contained in the section; false otherwise.</returns>
-        public bool Contains(Setting setting)
-          => mSettings.Contains(setting);
+        public bool Contains(Setting setting) => mSettings.Contains(setting);
 
         /// <summary>
         /// Determines whether a specifically named setting is contained in the section.
@@ -435,8 +427,7 @@ namespace SharpConfig
         /// <summary>
         /// Gets the number of settings that are in the section.
         /// </summary>
-        public int SettingCount
-          => mSettings.Count;
+        public int SettingCount => mSettings.Count;
 
         /// <summary>
         /// Gets or sets a setting by index.
@@ -472,19 +463,18 @@ namespace SharpConfig
         /// The setting if found, otherwise a new setting with
         /// the specified name is created, added to the section and returned.
         /// </returns>
-        public Setting this[string name]
-        {
-            get
-            {
-                var setting = FindSetting(name);
-                if (setting == null)
-                {
-                    setting = new Setting(name);
-                    mSettings.Add(setting);
-                }
+        public Setting this[string name] => GetSettingAndAutoCreateIfNotExist(name);
 
-                return setting;
+        private Setting GetSettingAndAutoCreateIfNotExist(string name)
+        {
+            var setting = FindSetting(name);
+            if (setting == null)
+            {
+                setting = new Setting(name);
+                mSettings.Add(setting);
             }
+
+            return setting;
         }
 
         /// <summary>
