@@ -62,8 +62,8 @@ namespace Tests
 
       var pp = cfg["TestSection"]["Person"].GetValue<Person>();
 
-      Assert.AreEqual(p.Name, pp.Name);
-      Assert.AreEqual(p.Age, pp.Age);
+      Assert.Equals(p.Name, pp.Name);
+      Assert.Equals(p.Age, pp.Age);
     }
   }
 }

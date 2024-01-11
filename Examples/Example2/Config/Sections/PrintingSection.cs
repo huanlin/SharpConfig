@@ -10,8 +10,8 @@ namespace Example2.Config.Sections
     {
         public const string Name = "Printing";
 
+        public string PrinterName { get; set; } = string.Empty;
         public bool PrintPageFoot { get; set; } = true;
-
         public double PrintTextFontSize { get; set; } = 12;
     }
 
