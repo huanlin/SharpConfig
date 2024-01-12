@@ -22,9 +22,9 @@ namespace Tests
 
         private static void ValidateExampleConfig(Configuration cfg)
         {
-            ClassicAssert.AreEqual(cfg["TestSection"]["IntSetting1"].IntValue, 100);
-            ClassicAssert.AreEqual(cfg["TestSection"]["IntSetting2"].IntValue, 200);
-            ClassicAssert.AreEqual(cfg["TestSection"]["StringSetting1"].StringValue, "Test");
+            Assert.That(cfg["TestSection"]["IntSetting1"].IntValue, Is.EqualTo(100));
+            Assert.That(cfg["TestSection"]["IntSetting2"].IntValue, Is.EqualTo(200));
+            Assert.That(cfg["TestSection"]["StringSetting1"].StringValue, Is.EqualTo("Test"));
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace Tests
 
             cfg.SaveToFile(filename);
             FileAssert.Exists(filename, "Failed to create the test config file.");
-
+            
             cfg = Configuration.LoadFromFile(filename);
             File.Delete(filename);
 
