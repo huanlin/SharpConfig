@@ -50,10 +50,10 @@ namespace SharpConfig
         public static Section FromObject(string name, object obj)
         {
             if (string.IsNullOrEmpty(name))
-                throw new ArgumentException("The section name must not be null or empty.", "name");
+                throw new ArgumentException("The section name must not be null or empty.", nameof(name));
 
             if (obj == null)
-                throw new ArgumentNullException("obj");
+                throw new ArgumentNullException(nameof(obj));
 
             var section = new Section(name);
             var type = obj.GetType();
@@ -154,7 +154,7 @@ namespace SharpConfig
         public void GetValuesFrom(object obj)
         {
             if (obj == null)
-                throw new ArgumentNullException("obj");
+                throw new ArgumentNullException(nameof(obj));
 
             var type = obj.GetType();
 
@@ -183,13 +183,13 @@ namespace SharpConfig
 
             object value = null;
 
-            if (info is FieldInfo)
+            if (info is FieldInfo fieldInfo)
             {
-                value = ((FieldInfo)info).GetValue(instance);
+                value = fieldInfo.GetValue(instance);
             }
-            else if (info is PropertyInfo)
+            else if (info is PropertyInfo propertyInfo)
             {
-                value = ((PropertyInfo)info).GetValue(instance, null);
+                value = propertyInfo.GetValue(instance, null);
             }
 
             setting.SetValue(value);
@@ -207,7 +207,7 @@ namespace SharpConfig
         public void SetValuesTo(object obj)
         {
             if (obj == null)
-                throw new ArgumentNullException("obj");
+                throw new ArgumentNullException(nameof(obj));
 
             var type = obj.GetType();
 
@@ -329,7 +329,7 @@ namespace SharpConfig
         public void Add(Setting setting)
         {
             if (setting == null)
-                throw new ArgumentNullException("setting");
+                throw new ArgumentNullException(nameof(setting));
 
             if (Contains(setting))
                 throw new ArgumentException("The specified setting already exists in the section.");
@@ -371,7 +371,7 @@ namespace SharpConfig
         public bool Remove(string settingName)
         {
             if (string.IsNullOrEmpty(settingName))
-                throw new ArgumentNullException("settingName");
+                throw new ArgumentNullException(nameof(settingName));
 
             return Remove(FindSetting(settingName));
         }
@@ -392,7 +392,7 @@ namespace SharpConfig
         public void RemoveAllNamed(string settingName)
         {
             if (string.IsNullOrEmpty(settingName))
-                throw new ArgumentNullException("settingName");
+                throw new ArgumentNullException(nameof(settingName));
 
             while (Remove(settingName)) ;
         }
@@ -419,7 +419,7 @@ namespace SharpConfig
         public bool Contains(string settingName)
         {
             if (string.IsNullOrEmpty(settingName))
-                throw new ArgumentNullException("settingName");
+                throw new ArgumentNullException(nameof(settingName));
 
             return FindSetting(settingName) != null;
         }
@@ -445,7 +445,7 @@ namespace SharpConfig
             get
             {
                 if (index < 0 || index >= mSettings.Count)
-                    throw new ArgumentOutOfRangeException("index");
+                    throw new ArgumentOutOfRangeException(nameof(index));
 
                 return mSettings[index];
             }

@@ -22,9 +22,9 @@ namespace Tests
 
         private static void ValidateExampleConfig(Configuration cfg)
         {
-            Assert.Equals(cfg["TestSection"]["IntSetting1"].IntValue, 100);
-            Assert.Equals(cfg["TestSection"]["IntSetting2"].IntValue, 200);
-            Assert.Equals(cfg["TestSection"]["StringSetting1"].StringValue, "Test");
+            ClassicAssert.AreEqual(cfg["TestSection"]["IntSetting1"].IntValue, 100);
+            ClassicAssert.AreEqual(cfg["TestSection"]["IntSetting2"].IntValue, 200);
+            ClassicAssert.AreEqual(cfg["TestSection"]["StringSetting1"].StringValue, "Test");
         }
 
         [Test]

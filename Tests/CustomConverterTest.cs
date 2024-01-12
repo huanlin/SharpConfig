@@ -4,6 +4,7 @@
 using System;
 using SharpConfig;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace Tests
 {
@@ -62,8 +63,8 @@ namespace Tests
 
       var pp = cfg["TestSection"]["Person"].GetValue<Person>();
 
-      Assert.Equals(p.Name, pp.Name);
-      Assert.Equals(p.Age, pp.Age);
+      ClassicAssert.AreEqual(p.Name, pp.Name);
+      ClassicAssert.AreEqual(p.Age, pp.Age);
     }
   }
 }

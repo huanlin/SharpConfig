@@ -9,9 +9,9 @@
 
 ## v4.0.1 February 2022
 
-- Add Configuration.SupressArrayParsing property and a unit test.
+- Add Configuration.SuppressArrayParsing property and a unit test.
 - Upgrade old .csproj files to SDK style.
 - Change target frameworks to .NET standard 2.0 and .NET 6.
 - Use MinVer package to simply project versioning.
 - Change appveyor.yml for automatic deploy NuGet package. Package name: SharpConfig-huanlin.
-- Add Example2 project for showing separate configuation section classes.
+- Add Example2 project for showing separate configuration section classes.
