@@ -1,6 +1,13 @@
 # Change Log
 
-## February 2022 (Michael Tsai)
+## v4.1.0 2024-01-12
+
+- Fixed [issue #1](https://github.com/huanlin/SharpConfig/issues/1): Setting is not saved if it does not exist in the config file.
+- Changed target framework to .NET 7.
+- Upgraded dependencies and modify code accordingly.
+- Updated Example2.
+
+## v4.0.1 February 2022
 
 - Add Configuration.SupressArrayParsing property and a unit test.
 - Upgrade old .csproj files to SDK style.

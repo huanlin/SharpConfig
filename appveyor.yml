@@ -22,7 +22,7 @@ after_build:
 test:
   assemblies:
     only:
-    - Output\Tests\Release\net6.0\Tests.dll
+    - Output\Tests\Release\net7.0\Tests.dll
 
 deploy:
   - provider: NuGet
