@@ -39,16 +39,16 @@ jobs:
           echo "No version tag found, using 0.0.0"
         }    
     - name: Restore dependencies
-      run: dotnet restore SharpConfig/SharpConfig.csproj
+      run: dotnet restore Src/SharpConfig.csproj
     
     - name: Build
-      run: dotnet build SharpConfig/SharpConfig.csproj --configuration Release --no-restore /p:Version=${{ steps.get_version.outputs.VERSION }}
+      run: dotnet build Src/SharpConfig.csproj --configuration Release --no-restore /p:Version=${{ steps.get_version.outputs.VERSION }}
     
     - name: Test
       run: dotnet test Tests/Tests.csproj --no-build --configuration Release --verbosity normal
     
     - name: Package
-      run: dotnet pack SharpConfig/SharpConfig.csproj --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.get_version.outputs.VERSION }}
+      run: dotnet pack Src/SharpConfig.csproj --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.get_version.outputs.VERSION }}
     
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
