@@ -14,6 +14,10 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/huanlin/SharpConfig</PackageProjectUrl>
     <PackageId>$(AssemblyName)-huanlin</PackageId>
+
+    <!-- MinVer configuration -->
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerDefaultPreReleaseIdentifiers>preview</MinVerDefaultPreReleaseIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>
