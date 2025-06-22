@@ -45,7 +45,7 @@ jobs:
       run: dotnet build SharpConfig.sln --configuration Release --no-restore /p:Version=${{ steps.get_version.outputs.VERSION }}
     
     - name: Test
-      run: dotnet test Tests/Test.csproj --no-build --configuration Release --verbosity normal
+      run: dotnet test Tests/Tests.csproj --no-build --configuration Release --verbosity normal
     
     - name: Package
       run: dotnet pack SharpConfig.sln --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.get_version.outputs.VERSION }}
