@@ -1,7 +1,7 @@
 ![sharpconfig_logo.png](SharpConfigLogo.png)
 
 
-[![Build and Publish](https://github.com/huanlin/SharpConfig/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/huanlin/nchinese/actions/workflows/build-and-publish.yml)
+[![Build and Publish](https://github.com/huanlin/SharpConfig/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/huanlin/SharpConfig/actions/workflows/build-and-publish.yml)
 [![NuGet](https://img.shields.io/nuget/v/SharpConfig-huanlin.svg)](https://www.nuget.org/packages/SharpConfig-huanlin/) 
 
 SharpConfig is an easy to use CFG/INI configuration library for .NET.
