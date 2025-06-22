@@ -39,7 +39,7 @@ jobs:
           echo "No version tag found, using 0.0.0"
         }    
     - name: Restore dependencies
-      run: dotnet restore SharpConfig.csproj
+      run: dotnet restore SharpConfig/SharpConfig.csproj
     
     - name: Build
       run: dotnet build SharpConfig/SharpConfig.csproj --configuration Release --no-restore /p:Version=${{ steps.get_version.outputs.VERSION }}
