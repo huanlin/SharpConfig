@@ -1,5 +1,10 @@
 # Change Log
 
+## v4.2.0 2025-06-22
+
+- Upgraded to .NET 9.
+- Added GitHub Actions workflow for CI/CD. Appveyor is no longer used.
+
 ## v4.1.0 2024-01-12
 
 - Fixed [issue #1](https://github.com/huanlin/SharpConfig/issues/1): Setting is not saved if it does not exist in the config file.
