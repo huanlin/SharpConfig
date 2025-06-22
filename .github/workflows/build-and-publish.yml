@@ -42,13 +42,13 @@ jobs:
       run: dotnet restore SharpConfig.csproj
     
     - name: Build
-      run: dotnet build SharpConfig.csproj --configuration Release --no-restore /p:Version=${{ steps.get_version.outputs.VERSION }}
+      run: dotnet build SharpConfig/SharpConfig.csproj --configuration Release --no-restore /p:Version=${{ steps.get_version.outputs.VERSION }}
     
     - name: Test
       run: dotnet test Tests/Tests.csproj --no-build --configuration Release --verbosity normal
     
     - name: Package
-      run: dotnet pack SharpConfig.csproj --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.get_version.outputs.VERSION }}
+      run: dotnet pack SharpConfig/SharpConfig.csproj --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.get_version.outputs.VERSION }}
     
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
