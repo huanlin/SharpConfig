@@ -1,7 +1,7 @@
-![sharpconfig_logo.png](SharpConfigLogo.png)
+﻿![sharpconfig_logo.png](SharpConfigLogo.png)
 
 
-[![Build and Publish](https://github.com/huanlin/SharpConfig/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/huanlin/SharpConfig/actions/workflows/build-and-publish.yml)
+[![Build status](https://github.com/huanlin/SharpConfig/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/huanlin/SharpConfig/actions/workflows/build-and-publish.yml)
 [![NuGet](https://img.shields.io/nuget/v/SharpConfig-huanlin.svg)](https://www.nuget.org/packages/SharpConfig-huanlin/) 
 
 SharpConfig is an easy to use CFG/INI configuration library for .NET.
@@ -12,7 +12,7 @@ The library is fully compatible with .NET, .NET Core and the Mono Framework.
 
 ---
 
-**Note:** This is a fork of [SharpConfig](https://github.com/cemdervis/SharpConfig), started since February 2022 by Michael Tsai. See [CHANGELOG.md](CHANGELOG.md) for more information.
+**Note:** This was a fork of [cemdervis/SharpConfig](https://github.com/cemdervis/SharpConfig) since February 2022. Then, it is detached from the original repository on Jun 2025. See [CHANGELOG.md](CHANGELOG.md) for more information.
 
 ---
 
